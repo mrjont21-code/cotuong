@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cờ Tướng</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/ui1.css">
+    <link rel="stylesheet" href="css/ui2.css">
+    <link rel="stylesheet" href="css/ui3.css">
+</head>
+<body>
+    <div id="app">
+        <!-- UI 1: NICKNAME -->
+        <div id="ui1" class="screen active">
+            <div class="nickname-container">
+                <h1 class="game-title">CỜ TƯỚNG</h1>
+                <input type="text" id="nickname-input" class="nickname-input" placeholder="Nhập nickname" maxlength="20" autocomplete="off">
+                <button id="nickname-confirm" class="btn-primary">XÁC NHẬN</button>
+                <p id="nickname-error" class="error-msg"></p>
+            </div>
+        </div>
+
+        <!-- UI 2: LOBBY -->
+        <div id="ui2" class="screen">
+            <div class="lobby-header">
+                <span class="lobby-title">NGƯỜI ĐANG ONLINE</span>
+                <span id="my-nickname" class="my-nickname"></span>
+            </div>
+            <div id="online-list" class="online-list">
+                <p class="empty-hint">Đang kết nối...</p>
+            </div>
+            <div id="connection-status" class="connection-status"></div>
+        </div>
+
+        <!-- UI 3: GAME -->
+        <div id="ui3" class="screen">
+            <div class="game-top">
+                <span id="opponent-name" class="player-name">Đối thủ</span>
+                <span id="turn-indicator" class="turn-indicator"></span>
+            </div>
+            <div id="board-container" class="board-container">
+                <canvas id="board-canvas"></canvas>
+            </div>
+            <div class="game-bottom">
+                <span id="my-name" class="player-name">Bạn</span>
+            </div>
+            <div id="game-message" class="game-message"></div>
+        </div>
+
+        <!-- Invitation Popup -->
+        <div id="invitation-popup" class="popup hidden">
+            <div class="popup-content">
+                <p id="invitation-text" class="invitation-text"></p>
+                <div class="popup-buttons">
+                    <button id="invite-accept" class="btn-primary">CHƠI</button>
+                    <button id="invite-decline" class="btn-secondary">TỪ CHỐI</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Invitation Sent Overlay -->
+        <div id="invite-sent-overlay" class="popup hidden">
+            <div class="popup-content">
+                <p class="invitation-text">Đang chờ đối thủ chấp nhận...</p>
+                <button id="cancel-invite" class="btn-secondary">HỦY</button>
+            </div>
+        </div>
+
+        <!-- Game End Popup -->
+        <div id="game-end-popup" class="popup hidden">
+            <div class="popup-content">
+                <p id="game-result-text" class="result-text"></p>
+                <button id="leave-game" class="btn-primary">RỜI VÁN</button>
+            </div>
+        </div>
+
+        <!-- Disconnect Popup -->
+        <div id="disconnect-popup" class="popup hidden">
+            <div class="popup-content">
+                <p class="invitation-text">Đối thủ đã mất kết nối.</p>
+                <button id="disconnect-leave" class="btn-primary">RỜI VÁN</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="xiangqi/notation.js"></script>
+    <script src="xiangqi/board.js"></script>
+    <script src="xiangqi/rules.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/network.js"></script>
+    <script src="js/guest.js"></script>
+    <script src="js/lobby.js"></script>
+    <script src="js/invitation.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
